@@ -13,7 +13,7 @@ public class TestScript : MonoBehaviour
     {
         Debug.LogError(startText);
     }
-
+    
     // Update is called once per frame
     void Update()
     {
