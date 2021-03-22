@@ -17,9 +17,11 @@ public class PlayerMovement : MonoBehaviour
     // propelling us toward our target
     // (ie our speed)
     public float forceStrength;
-    // This variable will determine how close we get to 
-    // the target point before stopping
-    public float stopDistance;
+
+
+// This variable will determine how close we get to 
+// the target point before stopping
+public float stopDistance;
 
     // ------------------------------------------------
     // Private variables, NOT visible in the Inspector
@@ -35,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
     // This variable will store the attached RigidBody 
     // so we can use it to move
     Rigidbody2D ourRigidbody;
-
 
     // ------------------------------------------------
     // Awake is called when the script is loaded
@@ -53,8 +54,19 @@ public class PlayerMovement : MonoBehaviour
     // ------------------------------------------------
     // Update is called once per frame
     // ------------------------------------------------
-    void Update()
+    public void Update()
     {
+        // Get the rigidbody from our player so we can check its speed
+        Rigidbody2D ourRigidbody = GetComponent<Rigidbody2D>();
+
+        // Find out from the rigidbody what our current horizontal and vertical speeds are
+        float currentSpeed = ourRigidbody.velocity.magnitude;
+
+        // Get the animator that we'll be using for movement
+        Animator ourAnimator = GetComponent<Animator>();
+
+        // Tell our animator what the speeds are
+        ourAnimator.SetFloat("speed", currentSpeed);
         // If the mouse button is down or touch is detected...
         if (Input.GetMouseButton(0))
         {
@@ -82,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 }
+
 /*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
