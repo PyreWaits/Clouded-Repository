@@ -5,8 +5,10 @@
 // This line enforces that the object have a Rigidbody2D in the 
 // Unity editor
 [RequireComponent(typeof(Rigidbody2D))]
+
 public class PlayerMovement : MonoBehaviour
 {
+
     // ------------------------------------------------
     // Public variables, visible in Unity Inspector
     // Use these for settings for your script
@@ -38,13 +40,20 @@ public float stopDistance;
     // so we can use it to move
     Rigidbody2D ourRigidbody;
 
+    // This variable will hold the audio source
+    AudioSource ourAudioSource;
+
     // ------------------------------------------------
     // Awake is called when the script is loaded
     // ------------------------------------------------
     void Awake()
     {
+
         // Get the rigidbody that we'll be using for movement
         ourRigidbody = GetComponent<Rigidbody2D>();
+
+        // Get audio when game starts
+        ourAudioSource = GetComponent<AudioSource>();
 
         // Set our target point to be our current position
         // so we don't start moving right away
@@ -56,8 +65,6 @@ public float stopDistance;
     // ------------------------------------------------
     public void Update()
     {
-        // Get the rigidbody from our player so we can check its speed
-        Rigidbody2D ourRigidbody = GetComponent<Rigidbody2D>();
 
         // Find out from the rigidbody what our current horizontal and vertical speeds are
         float currentSpeed = ourRigidbody.velocity.magnitude;
@@ -91,6 +98,15 @@ public float stopDistance;
 
             // Move in the correct direction with the set force strength
             ourRigidbody.AddForce(direction * forceStrength);
+
+
+            // Audiosource when moving
+            if (!ourAudioSource.isPlaying)
+                ourAudioSource.Play();
+        }
+        else
+        {
+            ourAudioSource.Stop();
         }
     }
 }
