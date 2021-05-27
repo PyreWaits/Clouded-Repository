@@ -32,6 +32,7 @@ public class Heal : MonoBehaviour
             //Remember healthcare is the change health function. Why did you name things this way. 
             player.HealthCare(heal);
 
+            Destroy(gameObject);
 
 
 

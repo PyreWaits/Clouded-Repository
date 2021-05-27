@@ -20,7 +20,8 @@ public class Hazard : MonoBehaviour
 
         // Get the PlayerHealth script attached to that object (if there is one)
         PlayerHealth player = objectWeCollidedWith.GetComponent<PlayerHealth>();
-    
+        
+        
         //Check if we actually found a player health script on the object we collided with
         //This if statement is true if the player variable is not null (empty)
         if (player != null)
@@ -31,8 +32,11 @@ public class Hazard : MonoBehaviour
             //If so then perform our action
             //Remember healthcare is the change health function. Why did you name things this way. 
             player.HealthCare(-hurt);
+           
+            //Sets the animator "currentHealth" to the currentHealth. Yes. IT ACTUALLY WORKED. NICE. 
             
-            
+           
+
 
 
         }
