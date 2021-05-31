@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 // This script assumes the player will have a Rigidbody2D attached
 // and it won't work without it

@@ -87,7 +87,9 @@ public class PlayerHealth : MonoBehaviour
 
         // Will destroy the gameObject with this script
         Destroy(gameObject);
-        
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+            GameObject.Destroy(enemy);
     }
 
 
