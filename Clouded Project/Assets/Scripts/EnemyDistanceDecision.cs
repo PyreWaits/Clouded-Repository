@@ -36,6 +36,7 @@ public class EnemyDistanceDecision : MonoBehaviour
             // Disable patrol and enable chasing
             patrolBehaviour.enabled = false;
             chaseBehaviour.enabled = true;
+            //sound when you get close
             grumble.enabled = true;
            
         }
@@ -43,6 +44,7 @@ public class EnemyDistanceDecision : MonoBehaviour
         {
             patrolBehaviour.enabled = true;
             chaseBehaviour.enabled = false;
+            //sound off when you get close
             grumble.enabled = false;
         }
 

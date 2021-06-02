@@ -102,14 +102,11 @@ public float stopDistance;
             ourRigidbody.AddForce(direction * forceStrength);
 
 
-            // Audiosource when moving
-            if (!ourAudioSource.isPlaying)
-                ourAudioSource.Play();
+       
         }
-        else
-        {
-            ourAudioSource.Stop();
-        }
+       
+      
+        
     }
 }
 
