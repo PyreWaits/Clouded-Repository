@@ -93,6 +93,8 @@ public class PlayerHealth : MonoBehaviour
         foreach (GameObject enemy in enemies)
             //gets absouletely obliterated 
             GameObject.Destroy(enemy);
+        Destroy(gameObject);
+
     }
 
 

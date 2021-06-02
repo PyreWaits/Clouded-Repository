@@ -15,9 +15,9 @@ public class PlayerFire : MonoBehaviour
     }
     public void GiveWater(int Hydrate)
     {
-        //Sometimes your current health can get better with surgery or worse.
+        //Remember if your current water is low hydrate.
         currentWater = currentWater + Hydrate;
-        //Uses math. The math "clamps" the current health to have a value from 0 to the starting health
+        //Uses math. The math "bottles" the water to have a value from 0 to the starting water
         currentWater = Mathf.Clamp(currentWater, 0, startingWater);
     }
     //Action: Fire a Projectile
@@ -45,12 +45,14 @@ public class PlayerFire : MonoBehaviour
             projectileRigidbody = clonedProjectile.GetComponent<Rigidbody2D>();
             //set the velocity on the rigidbody to the editor setting
             projectileRigidbody.velocity = projectileVelocity;
+            //reduce the counter for water
             currentWater = currentWater - 1;
 
         }
 
 
     }
+    //This is to be used in the water display code
     public int GetWater()
     {
         return currentWater;
