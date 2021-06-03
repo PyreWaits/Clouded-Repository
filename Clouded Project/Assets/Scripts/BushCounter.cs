@@ -22,15 +22,18 @@ public class BushCounter : MonoBehaviour
         //check if the object we collided with has the tag we are looking for(water)
         if (otherCollider.CompareTag("water"))
         {
-            //increase the counter
-            currentCounter = currentCounter + 1;
+            
             //Get the object assigned as bush's colider component and if it is enabled them
             if (bush.GetComponent<Collider2D>().enabled == true)
             {
+                //increase the counter
+                
+                Destroy(bush.GetComponent<Collider2D>());
+                currentCounter = currentCounter + 1;
                 //Watered sound plays
                 watered.Play();
                 //The collider that causes the counter to go up gets destroyed
-                Destroy(bush.GetComponent<Collider2D>());
+                
                 
             }
             

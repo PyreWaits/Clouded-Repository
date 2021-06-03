@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class PlayerFire : MonoBehaviour
 {
@@ -10,13 +10,12 @@ public class PlayerFire : MonoBehaviour
     public Vector2 projectileVelocity;
     public int startingWater;
     int currentWater;
-    public int startingCounter;
-    int currentCounter;
-    public string levelToLoad;
+
+ 
     void Awake()
     {
         currentWater = startingWater;
-        currentCounter = startingCounter;
+        
     }
     public void GiveWater(int Hydrate)
     {
