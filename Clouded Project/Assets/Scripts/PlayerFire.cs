@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerFire : MonoBehaviour
 {
@@ -9,9 +10,13 @@ public class PlayerFire : MonoBehaviour
     public Vector2 projectileVelocity;
     public int startingWater;
     int currentWater;
+    public int startingCounter;
+    int currentCounter;
+    public string levelToLoad;
     void Awake()
     {
         currentWater = startingWater;
+        currentCounter = startingCounter;
     }
     public void GiveWater(int Hydrate)
     {
@@ -23,10 +28,10 @@ public class PlayerFire : MonoBehaviour
     //Action: Fire a Projectile
     public void FireProjectile()
     {
-   
+        
         if (currentWater >=1)
             {
-
+            
 
             // clone the projectile and fire it in a direction
             // variable to hold the cloned object
@@ -55,7 +60,9 @@ public class PlayerFire : MonoBehaviour
     //This is to be used in the water display code
     public int GetWater()
     {
+       
         return currentWater;
+
     }
 
 }

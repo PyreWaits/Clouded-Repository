@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
-   
+    public string levelToLoad;
+    public int startingCounter;
+    int currentCounter;
+    
+
 
     //Condition: when the projectile hits a certain object type (plant)
     private void OnTriggerEnter2D(Collider2D otherCollider)
@@ -18,16 +23,23 @@ public class PlayerDamage : MonoBehaviour
             Destroy(gameObject);
             //Perform our action
             Hydrate(otherCollider.gameObject);
+            currentCounter = currentCounter + 1;
             
+
         }
-        
-       
+        if (currentCounter == 2)
+        {
+            SceneManager.LoadScene(levelToLoad);
+        }
+
+
     }
- 
+   
     //Action kills things
     public void Hydrate(GameObject plant)
     {
       Destroy(plant);
+ 
 
     }
 }

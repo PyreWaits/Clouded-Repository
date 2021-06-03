@@ -8,8 +8,6 @@ public class DamageTaken : MonoBehaviour
     // Start is called before the first frame update
     public void OnCollisionEnter2D(Collision2D collisionData)
      {
-
-
         //get the object we collided with
         Collider2D objectWeCollidedWith = collisionData.collider;
         Animator ourAnimator = GetComponent<Animator>();

@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
     public Camera MainCamera;
     //Will never be used if you are a gamer. I know you aren't so this is here.
     public Camera GameOverCamera;
+    public GameObject GameOver;
 
     //Variables for health. Get healthy get strong.
     //Starting health doesn't get much simpler than that. As you get older it gets lower.
@@ -73,12 +74,16 @@ public class PlayerHealth : MonoBehaviour
     //Non built in function for unity
     //It will only be called manually through our own code
     //It must be marked public so our other scripts can access it
+    [Obsolete]
     public void Kill()
     {
         //Will disable the main camera
         MainCamera.enabled = false;
-        //Will enable the game over camera to show a menu 
+        //Will enable the game over camera to show a menu
+        GameOver.active = true;
         GameOverCamera.enabled = true;
+        
+        
 
         //Game over sound will be callled 
         gameOver.Play();

@@ -12,10 +12,10 @@ public class Heal : MonoBehaviour
     // Built in unity function for handling collisions
     // This function will be called when another object bumps
     // into the one this script is attached to
-    public void OnCollisionEnter2D(Collision2D collisionData)
+    public void OnTriggerEnter2D(Collider2D otherCollider)
     {
         //get the object we collided with
-        Collider2D objectWeCollidedWith = collisionData.collider;
+        Collider2D objectWeCollidedWith = otherCollider;
 
 
         // Get the PlayerHealth script attached to that object (if there is one)
